@@ -44,9 +44,35 @@
 
 // export default App;
 
-const App = (props) => {
-  const { counter } = props;
-  return <div>{counter}</div>;
+// -------------------------------------------
+
+import { useState } from "react";
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  // setTimeout(() => setCounter(counter + 1), 1000);
+  // console.log("rendering...", counter);
+
+  // const handleClick = () => {
+  //   console.log("clicked");
+  // };
+
+  const increaseByOne = () => setCounter(counter + 1);
+
+  const setToZero = () => setCounter(0);
+
+  return (
+    <div>
+      <div>{counter}</div>
+      <button onClick={increaseByOne}> plus </button>
+      {/* OR
+      <button onClick={handleClick}>
+        plus
+      </button> */}
+      <button onClick={setToZero}>zero</button>
+    </div>
+  );
 };
 
 export default App;
