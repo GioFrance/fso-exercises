@@ -48,6 +48,14 @@
 
 import { useState } from "react";
 
+const Display = (props) => {
+  return <div>{props.counter}</div>;
+};
+
+const Button = (props) => {
+  return <button onClick={props.handleClick}>{props.text}</button>;
+};
+
 const App = () => {
   const [counter, setCounter] = useState(0);
 
@@ -59,18 +67,21 @@ const App = () => {
   // };
 
   const increaseByOne = () => setCounter(counter + 1);
-
+  const decreaseByOne = () => setCounter(counter - 1);
   const setToZero = () => setCounter(0);
 
   return (
     <div>
-      <div>{counter}</div>
-      <button onClick={increaseByOne}> plus </button>
-      {/* OR
+      <Display counter={counter} />
+      {/* <button onClick={increaseByOne}> plus </button>
+      OR
       <button onClick={handleClick}>
         plus
-      </button> */}
-      <button onClick={setToZero}>zero</button>
+      </button>
+      <button onClick={setToZero}>zero</button> */}
+      <Button handleClick={increaseByOne} text="plus" />
+      <Button handleClick={decreaseByOne} text="minus" />
+      <Button handleClick={setToZero} text="zero" />
     </div>
   );
 };
