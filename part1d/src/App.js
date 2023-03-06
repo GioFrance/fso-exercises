@@ -127,8 +127,11 @@
 
 import { useState } from "react";
 
+const Display = (props) => {
+  return <div>{props.displayValue}</div>;
+};
+
 const Button = (props) => {
-  console.log("hello");
   return <button onClick={props.handleClicks}>{props.text} </button>;
 };
 
@@ -142,7 +145,7 @@ const App = () => {
 
   return (
     <div>
-      {value}
+      <Display displayValue={value} />
       <Button handleClicks={setToValue(1000)} text="thousand" />
       <Button handleClicks={setToValue(0)} text="reset" />
       <Button handleClicks={setToValue(value + 1)} text="increment" />
