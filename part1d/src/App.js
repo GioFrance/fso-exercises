@@ -119,13 +119,18 @@
 //       <button onClick={() => setValue(0)}>reset to zero</button>
 //     </div>
 //   );
-// };
+// };ad
 
 // export default App;
 
 //  ------------------------------------
 
 import { useState } from "react";
+
+const Button = (props) => {
+  console.log("hello");
+  return <button onClick={props.handleClicks}>{props.text} </button>;
+};
 
 const App = () => {
   const [value, setValue] = useState(10);
@@ -138,9 +143,9 @@ const App = () => {
   return (
     <div>
       {value}
-      <button onClick={setToValue(1000)}>thousand</button>
-      <button onClick={setToValue(0)}>reset</button>
-      <button onClick={setToValue(value + 1)}>increment</button>
+      <Button handleClicks={setToValue(1000)} text="thousand" />
+      <Button handleClicks={setToValue(0)} text="reset" />
+      <Button handleClicks={setToValue(value + 1)} text="increment" />
     </div>
   );
 
