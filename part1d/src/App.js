@@ -1,5 +1,41 @@
 import { useState } from "react";
 
+const History = (props) => {
+  if (props.allClicksHistory.length === 0) {
+    return (
+      <div>
+        <p>the app is used by pressing the buttons</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <p>button press history: {props.allClicksHistory.join(" ")}</p>
+    </div>
+  );
+};
+
+const Button = (props) => {
+  return <button onClick={props.handleClicks}> {props.text}</button>;
+};
+
+const Total = (props) => {
+  if (props.totalClicks === 0) {
+    return (
+      <div>
+        <p>the total clicks will appear here once you clicked the button</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <p>total: {props.totalClicks}</p>
+    </div>
+  );
+};
+
 const App = () => {
   // const [clicks, setClicks] = useState({
   //   left: 0,
@@ -46,11 +82,11 @@ const App = () => {
   return (
     <div>
       {left}
-      <button onClick={handleLeftClick}>left</button>
-      <button onClick={handleRightClick}>right</button>
+      <Button handleClicks={handleLeftClick} text="Left" />
+      <Button handleClicks={handleRightClick} text="Right" />
       {right}
-      <p>{allClicks.join(" ")}</p>
-      <p>total: {total}</p>
+      <History allClicksHistory={allClicks} />
+      <Total totalClicks={total} />
     </div>
   );
 };
