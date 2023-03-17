@@ -18,10 +18,25 @@ const App = () => {
     const note = notes.find((n) => n.id === id);
     const changedNote = { ...note, important: !note.important };
 
-    noteService.update(id, changedNote).then((returnedNote) => {
-      setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
-    });
+    noteService
+      .update(id, changedNote)
+      .then((returnedNote) => {
+        setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
+      })
+      .catch((error) => {
+        alert(`the note '${note.content}' was already deleted from server`);
+        setNotes(notes.filter((n) => n.id !== id));
+      });
   };
+  // ERROR Handling for rejected promis is defined like this:
+  // axios
+  // .get('http://example.com/probably_will_fail')
+  // .then(response => {
+  //   console.log('success!')
+  // })
+  // .catch(error => {
+  //   console.log('fail')
+  // })
 
   const addNote = (event) => {
     event.preventDefault();
