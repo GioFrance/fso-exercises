@@ -27,6 +27,7 @@ const App = () => {
         alert(`the note '${note.content}' was already deleted from server`);
         setNotes(notes.filter((n) => n.id !== id));
       });
+    // Remove an already deleted note from app state is done with array FILTER method
   };
   // ERROR Handling for rejected promis is defined like this:
   // axios
