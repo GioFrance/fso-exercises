@@ -21,4 +21,16 @@ const update = (id, newObject) => {
   return request.then((response) => response.data);
 };
 
+// SAMPLE
+// const name = 'Leevi'
+// const age = 0
+
+// const person = {
+//   name: name,
+//   age: age
+// }
+
+// COULD BE WRITTEN IN ES6 LIKE THIS
+// const person = { name, age }
+
 export default { getAll, create, update };
