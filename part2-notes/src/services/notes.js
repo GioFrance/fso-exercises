@@ -22,7 +22,7 @@ const update = (id, newObject) => {
 };
 
 // SAMPLE
-// const name = 'Leevi'
+// const name = 'Levi'
 // const age = 0
 
 // const person = {
@@ -33,4 +33,6 @@ const update = (id, newObject) => {
 // COULD BE WRITTEN IN ES6 LIKE THIS
 // const person = { name, age }
 
-export default { getAll, create, update };
+const exportDefault = { getAll, create, update };
+
+export default exportDefault;

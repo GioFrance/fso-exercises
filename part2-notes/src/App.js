@@ -29,7 +29,7 @@ const App = () => {
       });
     // Remove an already deleted note from app state is done with array FILTER method
   };
-  // ERROR Handling for rejected promis is defined like this:
+  // ERROR Handling for rejected promise is defined like this:
   // axios
   // .get('http://example.com/probably_will_fail')
   // .then(response => {
