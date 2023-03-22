@@ -2,6 +2,29 @@ import { useState, useEffect } from "react";
 import Note from "./components/Note";
 import noteService from "./services/notes";
 
+const Notification = ({ message }) => {
+  if (message === null) {
+    return null;
+  }
+  return <div className="error">{message}</div>;
+};
+
+const Footer = () => {
+  const footerStyle = {
+    color: "green",
+    fontStyle: "italic",
+    fontSize: 16,
+  };
+  return (
+    <div style={footerStyle}>
+      <br />
+      <em>
+        Note app, Department of Computer Science, University of Helsinki 2022
+      </em>
+    </div>
+  );
+};
+
 const App = () => {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("a new note...");
@@ -65,13 +88,6 @@ const App = () => {
 
   const notesToShow = showAll ? notes : notes.filter((note) => note.important);
 
-  const Notification = ({ message }) => {
-    if (message === null) {
-      return null;
-    }
-    return <div className="error">{message}</div>;
-  };
-
   return (
     <div>
       <h1>Notes</h1>
@@ -94,6 +110,7 @@ const App = () => {
         <input value={newNote} onChange={handleNoteChange} />
         <button type="submit">save</button>
       </form>
+      <Footer />
     </div>
   );
 };
